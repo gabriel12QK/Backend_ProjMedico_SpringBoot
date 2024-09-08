@@ -1,25 +1,23 @@
 package com.example.Practica_medicamentos.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name="especialidad")
-public class especialidad {
+@Table(name="medicamentos")
+public class Medicamentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    private String laboratorio;
+    private int peso;
     private Boolean estado;
-    @OneToMany(mappedBy = "idEspecialidad", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<usuario> usuarios;
-    public especialidad() {}
-    public especialidad(Long id, String nombre, Boolean estado) {
+    public Medicamentos() {}
+    public Medicamentos(Long id, String nombre, String laboratorio, int peso, Boolean estado) {
         this.id = id;
         this.nombre = nombre;
+        this.laboratorio = laboratorio;
+        this.peso = peso;
         this.estado = estado;
     }
 
@@ -37,6 +35,22 @@ public class especialidad {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getLaboratorio() {
+        return laboratorio;
+    }
+
+    public void setLaboratorio(String laboratorio) {
+        this.laboratorio = laboratorio;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
     }
 
     public Boolean getEstado() {

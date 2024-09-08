@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="hospital")
-public class hospital {
+public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,9 +14,9 @@ public class hospital {
     private String ciudad;
     private Boolean estado;
 
-    public hospital() {}
+    public Hospital() {}
 
-    public hospital(Long id, String name, String direccion, String telefono, String ciudad, Boolean estado) {
+    public Hospital(Long id, String name, String direccion, String telefono, String ciudad, Boolean estado) {
         this.id = id;
         this.name = name;
         this.direccion = direccion;

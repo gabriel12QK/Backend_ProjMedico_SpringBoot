@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="usuarios")
-public class usuario {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,14 +14,14 @@ public class usuario {
     private int edad;
     @ManyToOne
     @JoinColumn(name = "idTipoUsuario")
-    private tipo_usuario idTipoUsuario;
+    private TipoUsuario idTipoUsuario;
     @ManyToOne
     @JoinColumn(name = "especialidad_id")
-    private especialidad idEspecialidad;
+    private Especialidad idEspecialidad;
     private Boolean estado;
 
-    public usuario() {}
-    public usuario(Long id,String nombre, String apellido, String correo, int edad, tipo_usuario idTipoUsuario, especialidad idEspecialidad, Boolean estado) {
+    public Usuario() {}
+    public Usuario(Long id, String nombre, String apellido, String correo, int edad, TipoUsuario idTipoUsuario, Especialidad idEspecialidad, Boolean estado) {
         this.id=id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -72,19 +72,19 @@ public class usuario {
         this.edad = edad;
     }
 
-    public tipo_usuario getIdTipoUsuario() {
+    public TipoUsuario getIdTipoUsuario() {
         return idTipoUsuario;
     }
 
-    public void setIdTipoUsuario(tipo_usuario idTipoUsuario) {
+    public void setIdTipoUsuario(TipoUsuario idTipoUsuario) {
         this.idTipoUsuario = idTipoUsuario;
     }
 
-    public especialidad getIdEspecialidad() {
+    public Especialidad getIdEspecialidad() {
         return idEspecialidad;
     }
 
-    public void setIdEspecialidad(especialidad idEspecialidad) {
+    public void setIdEspecialidad(Especialidad idEspecialidad) {
         this.idEspecialidad = idEspecialidad;
     }
 

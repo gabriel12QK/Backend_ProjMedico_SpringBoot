@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Entity
 @Table(name = "consultas")
-public class consulta {
+public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,18 +14,18 @@ public class consulta {
     private String diagnostico;
     @ManyToOne
     @JoinColumn(name = "paciente_id")
-    private usuario paciente;
+    private Usuario paciente;
     @ManyToOne
     @JoinColumn(name = "medico_id")
-    private usuario medico;
+    private Usuario medico;
     @ManyToOne
     @JoinColumn(name = "hospital")
-    private hospital hospital;
+    private Hospital hospital;
     private Boolean estado;
 
-    public consulta() {}
+    public Consulta() {}
 
-    public consulta(Long id, LocalDate fechaConsulta, String diagnostico, usuario medico, com.example.Practica_medicamentos.models.hospital hospital, Boolean estado) {
+    public Consulta(Long id, LocalDate fechaConsulta, String diagnostico, Usuario medico, Hospital hospital, Boolean estado) {
         this.id = id;
         this.fechaConsulta = fechaConsulta;
         this.diagnostico = diagnostico;
@@ -58,19 +58,19 @@ public class consulta {
         this.diagnostico = diagnostico;
     }
 
-    public usuario getMedico() {
+    public Usuario getMedico() {
         return medico;
     }
 
-    public void setMedico(usuario medico) {
+    public void setMedico(Usuario medico) {
         this.medico = medico;
     }
 
-    public com.example.Practica_medicamentos.models.hospital getHospital() {
+    public Hospital getHospital() {
         return hospital;
     }
 
-    public void setHospital(com.example.Practica_medicamentos.models.hospital hospital) {
+    public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name="tipo_usuario")
-public class tipo_usuario {
+public class TipoUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,11 +16,11 @@ public class tipo_usuario {
     private Boolean estado;
     @OneToMany(mappedBy = "idTipoUsuario", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<usuario> usuarios;
+    private List<Usuario> usuarios;
 
-    public tipo_usuario() {}
+    public TipoUsuario() {}
 
-    public tipo_usuario(Long id, String nombre, Boolean estado) {
+    public TipoUsuario(Long id, String nombre, Boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;

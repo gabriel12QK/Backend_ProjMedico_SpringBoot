@@ -6,7 +6,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "receta")
 
-public class receta {
+public class Receta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,12 +14,12 @@ public class receta {
     private LocalDate fechaEntrega;
     @ManyToOne
     @JoinColumn(name = "consultas")
-    private consulta idConsulta;
+    private Consulta idConsulta;
     private Boolean estado;
 
-    public receta() {}
+    public Receta() {}
 
-    public receta(Long id, Boolean estadoEntrega, LocalDate fechaEntrega, consulta idConsulta, Boolean estado) {
+    public Receta(Long id, Boolean estadoEntrega, LocalDate fechaEntrega, Consulta idConsulta, Boolean estado) {
         this.id = id;
         this.estadoEntrega = estadoEntrega;
         this.fechaEntrega = fechaEntrega;
@@ -51,11 +51,11 @@ public class receta {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public consulta getIdConsulta() {
+    public Consulta getIdConsulta() {
         return idConsulta;
     }
 
-    public void setIdConsulta(consulta idConsulta) {
+    public void setIdConsulta(Consulta idConsulta) {
         this.idConsulta = idConsulta;
     }
 
@@ -66,4 +66,5 @@ public class receta {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
 }
